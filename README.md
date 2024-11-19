@@ -66,3 +66,6 @@ https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank
 продублирую на диске:
 https://drive.google.com/file/d/1MsJ82nx4z0b1-QYDSjEqg0a54gfnobaV/view
 
+UPD: извиняюсь, не был настроен доступ, теперь доступ есть к гуглу, дополнительно выложу как PDF отдельным файлом
+https://drive.google.com/file/d/1MsJ82nx4z0b1-QYDSjEqg0a54gfnobaV/view?usp=sharing
+
