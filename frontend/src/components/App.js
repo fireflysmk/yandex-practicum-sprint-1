@@ -14,7 +14,8 @@ import Register from "./Register";
 import Login from "./Login";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
-import * as auth from "../utils/auth.js";
+//import * as auth from "../utils/auth.js";
+//import * as auth from "../../auth-microfrontend/src/utils/auth.js"
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -28,6 +29,23 @@ function App() {
   // В корневом компоненте App создана стейт-переменная currentUser. Она используется в качестве значения для провайдера контекста.
   const [currentUser, setCurrentUser] = React.useState({});
 
+  // kab, добавляем импорты из микрофронтедов
+  const Login = lazy(() => import('auth-microfrontend/Login').catch(() => {
+    return { default: () => <div className='error'>Component is not available!</div> };
+   })
+   ); 
+
+   const Register = lazy(() => import('auth-microfrontend/Register').catch(() => {
+    return { default: () => <div className='error'>Component is not available!</div> };
+   })
+   ); 
+
+   const auth = lazy(() => import('auth-microfrontend/').catch(() => {
+    return { default: () => <div className='error'>Component is not available!</div> };
+   })
+   ); 
+
+
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
   const [tooltipStatus, setTooltipStatus] = React.useState("");
 
@@ -36,6 +54,8 @@ function App() {
   const [email, setEmail] = React.useState("");
 
   const history = useHistory();
+  
+  
 
   // Запрос к API за информацией о пользователе и массиве карточек выполняется единожды, при монтировании.
   React.useEffect(() => {
@@ -77,6 +97,7 @@ function App() {
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
+  
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
@@ -140,7 +161,9 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
-
+  //  onRegister перенесена в auth-microfrontend/src/components/Register.js
+  //  onLogin,   перенесена в auth-microfrontend/src/components/Login.js
+  /*
   function onRegister({ email, password }) {
     auth
       .register(email, password)
@@ -168,7 +191,7 @@ function App() {
         setIsInfoToolTipOpen(true);
       });
   }
-
+*/
   function onSignOut() {
     // при вызове обработчика onSignOut происходит удаление jwt
     localStorage.removeItem("jwt");
@@ -179,6 +202,10 @@ function App() {
 
   return (
     // В компонент App внедрён контекст через CurrentUserContext.Provider
+
+    //kab - меняем переменные на импорты
+    // <Register onRegister={onRegister} /> 
+    // 
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page__content">
         <Header email={email} onSignOut={onSignOut} />
@@ -197,10 +224,10 @@ function App() {
             loggedIn={isLoggedIn}
           />
           <Route path="/signup">
-            <Register onRegister={onRegister} />
+            <Register onRegister={Register.onRegister} />
           </Route>
           <Route path="/signin">
-            <Login onLogin={onLogin} />
+            <Login onLogin={Login.onLogin} />
           </Route>
         </Switch>
         <Footer />
