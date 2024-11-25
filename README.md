@@ -61,11 +61,7 @@ SingleSPA все же больше для более глобального об
 
 
 Задание 2:
-ссылка на схему
-https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#G1MsJ82nx4z0b1-QYDSjEqg0a54gfnobaV
-продублирую на диске:
-https://drive.google.com/file/d/1MsJ82nx4z0b1-QYDSjEqg0a54gfnobaV/view
-
-UPD: извиняюсь, не был настроен доступ, теперь доступ есть к гуглу, дополнительно выложу как PDF отдельным файлом
+Обновляю ссылку на схему с изменениями:
 https://drive.google.com/file/d/1MsJ82nx4z0b1-QYDSjEqg0a54gfnobaV/view?usp=sharing
+(так же заменяю файл со схемой в проекте)
 
